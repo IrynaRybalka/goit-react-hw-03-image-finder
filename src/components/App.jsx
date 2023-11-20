@@ -8,9 +8,9 @@ import { fetchImg } from './api';
 
 export class App extends Component {
   state = {
+    images: [],
     query: '',
     page: 1,
-    images: [],
     loading: false,
     totalHits: 0,
   };
@@ -41,7 +41,7 @@ export class App extends Component {
         const data = await fetchImg(query, page);
         const { totalHits, hits } = data;
         if (totalHits === 0) {
-          toast.error(`There are no pictures for your search`);
+          toast.error(`Sorry,there are no pictures for your search`);
           return;
         }
 
